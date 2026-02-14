@@ -1,3 +1,10 @@
+# 1.0.0 (2026-02-14)
+
+
+### Features
+
+* improve jest runner result ([d264adb](https://github.com/badrAZ/bai-dev/commit/d264adb044bebc8a9a0f36e1e83adb666291e41b))
+
 ## [1.0.1](https://github.com/badrAZ/bai-dev/compare/v1.0.0...v1.0.1) (2026-02-14)
 
 
