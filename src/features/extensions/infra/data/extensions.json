@@ -1,0 +1,10 @@
+[
+  "formulahendry.auto-rename-tag",
+  "mgmcdermott.vscode-language-babel",
+  "dzhavat.bracket-pair-toggler",
+  "streetsidesoftware.code-spell-checker",
+  "EditorConfig.EditorConfig",
+  "dbaeumer.vscode-eslint",
+  "eamodio.gitlens",
+  "esbenp.prettier-vscode"
+]

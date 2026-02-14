@@ -1,0 +1,47 @@
+{
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript"],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "default"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.js": "javascript"
+  },
+  "eslint.lintTask.enable": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "[vue]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "cSpell.overrides": [],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "telemetry.telemetryLevel": "off",
+  "workbench.colorTheme": "Bai Dark Theme",
+  "terminal.integrated.fontFamily": "monospace",
+  "editor.fontFamily": "Fira Code, Fira Mono, monospace, 'Droid Sans Mono', 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 22,
+  "editor.fontWeight": "400",
+  "editor.fontLigatures": true
+}

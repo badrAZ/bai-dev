@@ -1,0 +1,71 @@
+[alias]
+   s = status
+   b = branch
+   bco =  "!f() { git b $1 && git co $1; }; f"
+   p = push
+   cm = commit --allow-empty-message -m
+   cn = commit --allow-empty-message -m 'swap' --no-verify
+   c = commit
+   a = add --patch
+   pf = push --force-with-lease
+   pu = "!f(){ git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
+   st = stash -a
+   sta = stash apply
+   rh = reset HEAD~
+   rs = rebase -i -p
+   mt = mergetool
+   com = "!f() { git co main && git fetch && git ff; }; f"
+   comr = "!f() { git com && git co - && git rebase main; }; f";
+   co       = checkout
+   ff       = merge --ff-only
+   lg       = log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold)%s%Creset %C(green)%cr%Creset %C(blue)%an%Creset %C(red bold)%d%Creset'
+   rmmerged = "!git branch --merged | grep -v '^\\*' | xargs -tr git branch -d"
+[commit]
+   verbose = true
+[diff]
+   compactionheuristic = true
+   mnemonicprefix = true
+   renamelimit = 0
+   renames = copies
+   wordRegex = [a-zA-Z0-9]+|.
+[difftool]
+   prompt = false
+[fetch]
+   prune = true
+   recurseSubmodules = on-demand
+[grep]
+   extendedRegexp = true
+[log]
+   abbrevCommit = true
+   follow = true
+[merge]
+   conflictstyle = diff3
+[mergetool]
+   keepBackup = false
+   keepTemporaries = false
+   prompt = false
+   writeToTemp = true
+[pull]
+   ff = only
+[push]
+   #default = upstream
+   followTags = true
+[receive]
+   fsckObjects = true
+[rerere]
+   autoupdate = true
+   enabled = true
+[stash]
+   showPatch = true
+[status]
+   submodulesummary = true
+   showUntrackedFiles = all
+[svn]
+   rmdir = 1
+[tag]
+   sort = version:refname
+[versionsort]
+   prereleaseSuffix = -
+[core]
+   editor = code --wait
+ 

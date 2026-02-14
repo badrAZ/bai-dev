@@ -1,0 +1,91 @@
+{
+  "name": "bai-dev",
+  "private": true,
+  "publisher": "badr-ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/badrAZ/bai-dev.git"
+  },
+  "icon": "assets/logo.png",
+  "displayName": "Badr AI dev",
+  "version": "0.0.0",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Themes",
+    "Testing"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onLanguage:typescriptreact",
+    "onLanguage:javascriptreact"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Badr AI Dark Theme",
+        "uiTheme": "vs-dark",
+        "path": "./src/features/theme/theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "bai-dev.installExtensions",
+        "title": "Badr AI dev: Install Extensions"
+      },
+      {
+        "command": "bai-dev.gitConfig",
+        "title": "Badr AI dev: Git Config"
+      },
+      {
+        "command": "bai-dev.applySettings",
+        "title": "Badr AI dev: Apply Settings"
+      },
+      {
+        "command": "bai-dev.shortcuts",
+        "title": "Badr AI dev: Shortcuts"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "pretest": "yarn run lint",
+    "lint": "eslint src",
+    "test": "jest",
+    "vsce:package": "vsce package --yarn"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.5",
+    "@semantic-release/npm": "^13.1.4",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.109.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.1",
+    "eslint": "^9.39.2",
+    "jest": "^30.2.0",
+    "raw-loader": "^4.0.2",
+    "semantic-release": "^25.0.3",
+    "ts-jest": "^29.4.6",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "inversify": "^7.11.0",
+    "reflect-metadata": "^0.2.2"
+  }
+}
