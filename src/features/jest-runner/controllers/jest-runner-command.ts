@@ -38,12 +38,12 @@ export class JestRunnerCommand extends VscodeCommand {
     try {
       const testFileArgs = fileName ? path.basename(fileName) : ''
       const testTitleArg = testTitle ? `-t "${testTitle}"` : ''
-      await this.execCommand(
+      const result = await this.execCommand(
         `yarn jest --no-cache ${testFileArgs} ${testTitleArg}`,
         path.dirname(uri.fsPath)
       )
 
-      jestRunnerResult.addPassedState()
+      jestRunnerResult.addPassedState(result)
     } catch (error) {
       jestRunnerResult.addFailedState(
         error instanceof Error ? error.message : String(error)

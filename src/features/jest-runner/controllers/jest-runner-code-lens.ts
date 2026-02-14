@@ -29,13 +29,14 @@ export class JestRunnerCodeLens extends VscodeCodeLens {
       })
     )
 
-
     return commands.map(command => {
+      const previousLineNumber = Math.max(command.line - 1, 0)
+      const isPreviousLineEmpty = document.lineAt(previousLineNumber).text.trim() === ''
+      const linePosition = isPreviousLineEmpty ? command.line : previousLineNumber
+
       const range = new vscode.Range(
-        command.line,
-        0,
-        command.line,
-        0
+        new vscode.Position(linePosition, 0),
+        new vscode.Position(linePosition, command.indent + 1)
       )
 
       const args = command.commandArgs ?? []

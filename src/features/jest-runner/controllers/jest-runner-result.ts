@@ -67,9 +67,19 @@ export class JestRunnerResult {
     this.getEditor().setDecorations(this.runningDecoration, [this.getRange()])
   }
 
-  addPassedState(): void {
+  addPassedState(message: string): void {
+    const range = this.getRange()
+    const editor = this.getEditor()
+
     this.clear()
-    this.getEditor().setDecorations(this.passedDecoration, [this.getRange()])
+    editor.setDecorations(this.passedDecoration, [range])
+    this.diagnosticCollection.set(editor.document.uri, [
+      new vscode.Diagnostic(
+        this.getDecorationRange(),
+        message,
+        vscode.DiagnosticSeverity.Information
+      ),
+    ])
   }
 
   addFailedState(message: string): void {
@@ -79,7 +89,11 @@ export class JestRunnerResult {
     this.clear()
     editor.setDecorations(this.failedDecoration, [range])
     this.diagnosticCollection.set(editor.document.uri, [
-      new vscode.Diagnostic(range, message, vscode.DiagnosticSeverity.Error),
+      new vscode.Diagnostic(
+        this.getDecorationRange(),
+        message,
+        vscode.DiagnosticSeverity.Error
+      ),
     ])
   }
 
@@ -97,5 +111,16 @@ export class JestRunnerResult {
     this.runningDecoration.dispose()
     this.diagnosticCollection.dispose()
     this.disposables.forEach(d => d.dispose())
+  }
+
+  private getDecorationRange(): vscode.Range {
+    const range = this.getRange()
+    const editor = this.getEditor()
+    const textLength = editor.document.lineAt(range.start.line).text.length
+
+    return new vscode.Range(
+      range.start,
+      new vscode.Position(range.end.line, textLength)
+    )
   }
 }

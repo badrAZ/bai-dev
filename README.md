@@ -26,7 +26,7 @@ To get the recommended shortcuts, open the command palette (`Cmd+Shift+P` on mac
 
 ## Jest Runner
 
-This extension provides a Jest runner allowing to run tests directly from the editor. Note: Jest should be installed in the project.
+This extension provides a Jest runner allowing to run tests directly from the editor.
 
 ## For more information
 
