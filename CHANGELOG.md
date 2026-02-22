@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/badrAZ/bai-dev/compare/v1.0.0...v1.0.1) (2026-02-22)
+
+
+### Bug Fixes
+
+* jest runner lens position ([54e4f6b](https://github.com/badrAZ/bai-dev/commit/54e4f6be9c9d9444693898daebc27bd4443ddbe8))
+
 # 1.0.0 (2026-02-14)
 
 
