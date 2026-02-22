@@ -39,7 +39,7 @@ export class JestRunnerCommand extends VscodeCommand {
       const testFileArgs = fileName ? path.basename(fileName) : ''
       const testTitleArg = testTitle ? `-t "${testTitle}"` : ''
       const result = await this.execCommand(
-        `yarn jest --no-cache ${testFileArgs} ${testTitleArg}`,
+        `${this.getJestCommand()} ${testFileArgs} ${testTitleArg}`,
         path.dirname(uri.fsPath)
       )
 
@@ -49,6 +49,13 @@ export class JestRunnerCommand extends VscodeCommand {
         error instanceof Error ? error.message : String(error)
       )
     }
+  }
+
+  private getJestCommand(): string {
+    return (
+      vscode.workspace.getConfiguration('bai-dev').get<string>('jestCommand') ??
+      'yarn jest'
+    )
   }
 
   private getEditor(uri: vscode.Uri): vscode.TextEditor | undefined {

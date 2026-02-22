@@ -48,7 +48,18 @@
         "command": "bai-dev.shortcuts",
         "title": "Badr AI dev: Shortcuts"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "BAI dev",
+      "properties": {
+        "bai-dev.jestCommand": {
+          "type": "string",
+          "default": "yarn test",
+          "description": "Command to run Jest tests"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
