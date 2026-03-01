@@ -17,7 +17,7 @@ export class JestTestFile {
     indent: number
   }[] {
     const regex =
-      /^(?<indent>\s*)(?:it|test)(?:\.(?:skip|only|todo))?(?:\.each\s*\([\s\S]*?\))?\s*\(\s*\n?\s*["'`](?<title>.*?)["'`]/gm;
+      /(?<indent>\t*)(?:it|test)(?:\.(?:skip|only|todo))?(?:\.each\s*\([\s\S]*?\))?\s*\(\s*\n?\s*["'`](?<title>.*?)["'`]/gm;
 
     const matches: { title: string; line: number; indent: number }[] = [];
 
