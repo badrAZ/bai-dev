@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/badrAZ/bai-dev/compare/v1.0.2...v1.1.0) (2026-03-05)
+
+
+### Features
+
+* improve jest command ([92db4c2](https://github.com/badrAZ/bai-dev/commit/92db4c25f27381661bb142a4c54b923ab96ac7ec))
+
 ## [1.0.2](https://github.com/badrAZ/bai-dev/compare/v1.0.1...v1.0.2) (2026-03-01)
 
 
