@@ -13,8 +13,17 @@ export class JestRunnerCommand extends VscodeCommand {
     fileName: string,
     testTitle?: string
   ): Promise<void> {
+    this.execTestCommand(fileName, testTitle)
+  }
+
+  private execTestCommand(fileName: string = '', testTitle?: string): void {
     const command = this.getJestCommand()
-    this.execCommand(command, fileName, testTitle)
+    const terminal = this.getTerminal()
+
+    const test = testTitle ? `-t "${testTitle}"` : ''
+
+    terminal.show()
+    terminal.sendText(`${command} ${fileName} ${test}`, true)
   }
 
   private getJestCommand(): string {
@@ -24,15 +33,14 @@ export class JestRunnerCommand extends VscodeCommand {
     )
   }
 
-  private execCommand(
-    command: string,
-    fileName: string = '',
-    testTitle?: string
-  ): void {
-    const test = testTitle ? `-t "${testTitle}"` : ''
+  private getTerminal(): vscode.Terminal {
+    const name = 'Jest Test Runner'
 
-    const terminal = vscode.window.createTerminal({ name: 'Jest Test Runner' })
-    terminal.show()
-    terminal.sendText(`${command} ${fileName} ${test}`, true)
+    const terminal = vscode.window.terminals.find(t => t.name === name)
+    if (terminal) {
+      return terminal
+    }
+
+    return vscode.window.createTerminal({ name })
   }
 }
