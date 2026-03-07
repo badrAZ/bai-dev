@@ -1,3 +1,9 @@
+import * as path from 'path'
+
+const formatFilename = (filename: string) => {
+  return filename.replaceAll(path.sep, path.posix.sep)
+}
+
 export class JestTestFile {
   constructor(
     private readonly filename: string,
@@ -6,9 +12,9 @@ export class JestTestFile {
 
   data() {
     return {
-      filename: this.filename,
+      filename: formatFilename(this.filename),
       content: this.content,
-    };
+    }
   }
 
   getTestLines(): {
@@ -17,24 +23,24 @@ export class JestTestFile {
     indent: number
   }[] {
     const regex =
-      /(?<indent>\t*)(?:it|test)(?:\.(?:skip|only|todo))?(?:\.each\s*\([\s\S]*?\))?\s*\(\s*\n?\s*["'`](?<title>.*?)["'`]/gm;
+      /(?<indent>\t*)(?:it|test)(?:\.(?:skip|only|todo))?(?:\.each\s*\([\s\S]*?\))?\s*\(\s*\n?\s*["'`](?<title>.*?)["'`]/gm
 
-    const matches: { title: string; line: number; indent: number }[] = [];
+    const matches: { title: string; line: number; indent: number }[] = []
 
-    let match: RegExpExecArray | null;
+    let match: RegExpExecArray | null
     while ((match = regex.exec(this.content)) !== null) {
       const lineIndex = this.content
         .substring(0, match.index)
-        .split('\n').length;
-      const indent = match.groups?.indent?.length ?? 0;
-      const title = match.groups?.title ?? '';
-      matches.push({ title, line: lineIndex, indent });
+        .split('\n').length
+      const indent = match.groups?.indent?.length ?? 0
+      const title = match.groups?.title ?? ''
+      matches.push({ title, line: lineIndex, indent })
     }
 
-    return matches;
+    return matches
   }
 
   static fromData(data: { filename: string; content: string }) {
-    return new JestTestFile(data.filename, data.content);
+    return new JestTestFile(data.filename, data.content)
   }
 }
