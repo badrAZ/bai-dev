@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/badrAZ/bai-dev/compare/v1.1.0...v1.1.1) (2026-03-07)
+
+
+### Bug Fixes
+
+* **jestRunner:** fix filename ([4ee8a82](https://github.com/badrAZ/bai-dev/commit/4ee8a82fd1b3479faabc2caacb47a3f040f22fea))
+
 # [1.1.0](https://github.com/badrAZ/bai-dev/compare/v1.0.2...v1.1.0) (2026-03-05)
 
 
