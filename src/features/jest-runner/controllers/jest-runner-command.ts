@@ -23,7 +23,7 @@ export class JestRunnerCommand extends VscodeCommand {
     const test = testTitle ? `-t "${testTitle}"` : ''
 
     terminal.show()
-    terminal.sendText(`${command} ${fileName} ${test}`, true)
+    terminal.sendText(`${command} "${fileName}" ${test}`, true)
   }
 
   private getJestCommand(): string {
